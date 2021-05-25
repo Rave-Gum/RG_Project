@@ -17,6 +17,13 @@ public class RainBot {
 
     private static String token;
     private static JDA jda;
+    private static EnumSet<GatewayIntent> intents = EnumSet.of(
+            GatewayIntent.GUILD_MEMBERS,
+            GatewayIntent.GUILD_MESSAGES,
+            GatewayIntent.GUILD_EMOJIS,
+            GatewayIntent.GUILD_MESSAGE_REACTIONS,
+            GatewayIntent.GUILD_VOICE_STATES
+    );
 
     public static void main(String[] args) {
         init();
@@ -33,11 +40,6 @@ public class RainBot {
             System.out.println("file not founded");
             System.exit(0);
         }
-        EnumSet<GatewayIntent> intents = EnumSet.of(
-                GatewayIntent.GUILD_MEMBERS,
-                GatewayIntent.GUILD_MESSAGES,
-                GatewayIntent.GUILD_VOICE_STATES
-        );
         try {
             jda = JDABuilder.createDefault(token, intents)
                     .enableCache(CacheFlag.VOICE_STATE)
