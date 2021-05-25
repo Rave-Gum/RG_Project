@@ -2,7 +2,7 @@ package rainbot;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import rainbot.function.MessageListener;
+import rainbot.adapters.MessageListener;
 
 import javax.security.auth.login.LoginException;
 import java.io.File;
@@ -35,6 +35,5 @@ public class RainBot {
             System.out.println("Login failed");
             System.exit(0);
         }
-
     }
 }
