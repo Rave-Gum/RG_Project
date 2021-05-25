@@ -5,6 +5,12 @@ plugins {
 group 'rg_project.discord.rainbot'
 version '1.0'
 
+// encoding setting
+compileJava.options.encoding = 'UTF-8'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 repositories {
     mavenCentral()
     maven {
