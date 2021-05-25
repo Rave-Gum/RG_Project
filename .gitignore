@@ -2,4 +2,5 @@
 /.idea
 /.gradle
 /build
-/src/main/resources/token.txt
+/src/main/resources/
+/out
