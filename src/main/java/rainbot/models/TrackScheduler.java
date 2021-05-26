@@ -1,14 +1,16 @@
-package rainbot.functions;
+package rainbot.models;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * 음악 스케쥴러
+ * 음악 스케쥴러 클래스
+ * 음악 플레이어의 재생목록, 조작을 관리
  */
 public class TrackScheduler extends AudioEventAdapter {
     private final AudioPlayer player;
@@ -22,6 +24,16 @@ public class TrackScheduler extends AudioEventAdapter {
         this.queue = new LinkedBlockingQueue<>();
     }
 
+    @Override
+    public void onPlayerPause(AudioPlayer player) {
+        player.setPaused(true);
+    }
+
+    @Override
+    public void onPlayerResume(AudioPlayer player) {
+        player.setPaused(false);
+    }
+
     /**
      * 재생목록 큐에 음악을 넣는 메소드
      * (재생목록이 비어있으면 바로 음악 재생)
@@ -32,6 +44,7 @@ public class TrackScheduler extends AudioEventAdapter {
         // Calling startTrack with the noInterrupt set to true will start the track only if nothing is currently playing. If
         // something is playing, it returns false and does nothing. In that case the player was already playing so this
         // track goes to the queue instead.
+
         if (!player.startTrack(track, true)) {
             queue.offer(track);
         }
@@ -52,5 +65,23 @@ public class TrackScheduler extends AudioEventAdapter {
         if (endReason.mayStartNext) {
             nextTrack();
         }
+    }
+
+    /**
+     * 재생목록 반환 메소드
+     *
+     * @return 재생목록
+     */
+    public BlockingQueue<AudioTrack> getQueue() {
+        return queue;
+    }
+
+    /**
+     * 재생중인 음악 반환
+     *
+     * @return 재생중인 음악
+     */
+    public AudioTrack getPlayingTrack() {
+        return player.getPlayingTrack();
     }
 }

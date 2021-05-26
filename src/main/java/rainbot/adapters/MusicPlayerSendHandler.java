@@ -1,4 +1,4 @@
-package rainbot.functions;
+package rainbot.adapters;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.playback.MutableAudioFrame;
