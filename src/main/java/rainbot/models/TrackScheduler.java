@@ -1,14 +1,16 @@
-package rainbot.functions;
+package rainbot.models;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * 음악 스케쥴러
+ * 음악 스케쥴러 클래스
+ * 음악 플레이어의 재생목록, 조작을 관리
  */
 public class TrackScheduler extends AudioEventAdapter {
     private final AudioPlayer player;
@@ -20,6 +22,16 @@ public class TrackScheduler extends AudioEventAdapter {
     public TrackScheduler(AudioPlayer player) {
         this.player = player;
         this.queue = new LinkedBlockingQueue<>();
+    }
+
+    @Override
+    public void onPlayerPause(AudioPlayer player) {
+        player.setPaused(true);
+    }
+
+    @Override
+    public void onPlayerResume(AudioPlayer player) {
+        player.setPaused(false);
     }
 
     /**
@@ -52,5 +64,23 @@ public class TrackScheduler extends AudioEventAdapter {
         if (endReason.mayStartNext) {
             nextTrack();
         }
+    }
+
+    /**
+     * 재생목록 반환 메소드
+     *
+     * @return 재생목록
+     */
+    public BlockingQueue<AudioTrack> getQueue() {
+        return queue;
+    }
+
+    /**
+     * 재생중인 음악 반환
+     *
+     * @return 재생중인 음악
+     */
+    public AudioTrack getPlayingTrack() {
+        return player.getPlayingTrack();
     }
 }
