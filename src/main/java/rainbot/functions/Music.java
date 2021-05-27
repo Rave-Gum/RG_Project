@@ -124,6 +124,13 @@ public class Music {
         return musicManager.scheduler.getPlayingTrack();
     }
 
+    /**
+     * 재생목록 메시지 생성 메소드
+     *
+     * @param playingTrack 재생중인 음악
+     * @param playList     재생목록
+     * @return 재생목록 메시지
+     */
     private MessageEmbed buildPlayListMessage(AudioTrack playingTrack, BlockingQueue<AudioTrack> playList) {
         EmbedBuilder eb = new EmbedBuilder();
         StringBuilder sb = new StringBuilder();

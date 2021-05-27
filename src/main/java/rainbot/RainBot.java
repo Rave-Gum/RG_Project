@@ -5,7 +5,6 @@ import net.dv8tion.jda.api.JDABuilder;
 import rainbot.adapters.MessageListener;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-//import rainbot.adapters.MusicEventListener;
 
 import javax.security.auth.login.LoginException;
 import java.io.File;
@@ -29,7 +28,6 @@ public class RainBot {
         init();
         jda.setAutoReconnect(false);
         jda.addEventListener(new MessageListener());
-//        jda.addEventListener(new MusicEventListener());
     }
 
     private static void init() {
