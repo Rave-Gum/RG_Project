@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
+import rainbot.functions.Gamble;
 import rainbot.functions.Music;
 import rainbot.functions.Vote;
 import rainbot.functions.WordSearch;
@@ -18,6 +19,7 @@ public class MessageListener extends ListenerAdapter {
     private final String[] voteEmoji = {"1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"};
     private HashMap<Long, Vote> votes = new HashMap<>();
     private Music music = new Music();
+    private Gamble gamble = new Gamble();
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -56,6 +58,17 @@ public class MessageListener extends ListenerAdapter {
             } catch (IllegalArgumentException e) {
                 tc.sendMessage(wordSearch.searchHelper()).queue();
             }
+        } else if (command.equals("!돈")) {
+            gamble.printMoney(tc, user);
+        } else if (command.equals("!초기돈")) {
+            gamble.initMoney(tc, user);
+        } else if (command.equals("!도박")) {
+            gamble.printGambleGuide(tc);
+        } else if (command.equals("!배팅") && args.length == 3) {
+
+            double bettingMoney = Integer.parseInt(args[1]);
+            int scale = Integer.parseInt(args[2]);
+            gamble.playGamble(tc, user, bettingMoney, scale);
         }
 
     }
