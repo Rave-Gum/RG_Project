@@ -1,6 +1,6 @@
-# Rain_Bot
+# Rain_Bot (Discord ChatBot)
 
-![language](https://img.shields.io/github/languages/top/beygee/survive)
+![language](https://img.shields.io/github/languages/top/Rave-Gum/RG_Project)
 ![version](https://img.shields.io/github/v/tag/Rave-Gum/RG_Project?label=last%20version)
 ![develop](https://img.shields.io/badge/develop-pause-yellow)
 
