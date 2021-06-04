@@ -4,7 +4,7 @@
 ![version](https://img.shields.io/github/v/tag/Rave-Gum/RG_Project?label=last%20version)
 ![develop](https://img.shields.io/badge/develop-pause-yellow)
 
-<img align = "right" src="https://user-images.githubusercontent.com/47655983/120768831-83dc1f80-c557-11eb-9984-314ca72718a7.png" width="300">
+<img align = "right" src="https://user-images.githubusercontent.com/47655983/120768831-83dc1f80-c557-11eb-9984-314ca72718a7.png" width="270">
 
 
 ## 개요
