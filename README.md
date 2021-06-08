@@ -1,16 +1,28 @@
-# RG_Project 디스코드 챗봇
+# Rain_Bot (Discord ChatBot)
 
-1. 사용언어 : `Java`
+![language](https://img.shields.io/github/languages/top/Rave-Gum/RG_Project)
+![version](https://img.shields.io/github/v/tag/Rave-Gum/RG_Project?label=last%20version)
+![develop](https://img.shields.io/badge/develop-pause-yellow)
 
-2. 기능
+<img align = "right" src="https://user-images.githubusercontent.com/47655983/120768831-83dc1f80-c557-11eb-9984-314ca72718a7.png" width="250">
 
-[음악 재생](#음악-재생)
 
-[도박](#도박)
+## 개요
 
-[단어 검색](#단어-검색)
+디스코드 서버의 편의성 증진을 위해 개발중인 디스코드 봇입니다.
 
-[투표](#투표)
+현재 4개의 기능이 구현되어 있으며 개발 완료시 배포될 예정입니다.
+
+
+## 목차
+
+1. [음악 재생](#음악-재생)
+
+2. [도박](#도박)
+
+3. [단어 검색](#단어-검색)
+
+4. [투표](#투표)
 
 
 
